@@ -28,7 +28,9 @@ movimenta-mais/
 │   │   └── favicon.ico
 │   ├── components/
 │   │   ├── ui/             # Componentes de interface reutilizáveis
-│   │   └── layout/         # Componentes estruturais (cabeçalho, rodapé etc.)
+│   │   ├── layout/         # Componentes estruturais (cabeçalho, rodapé etc.)
+│   │   ├── landing/        # Seções da landing page
+│   │   └── illustrations/  # Ilustrações em SVG
 │   ├── hooks/              # Hooks React customizados
 │   ├── services/           # Chamadas externas e integrações (APIs)
 │   ├── utils/              # Funções auxiliares puras
