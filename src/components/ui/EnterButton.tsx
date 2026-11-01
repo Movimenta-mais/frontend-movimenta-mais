@@ -1,3 +1,6 @@
+import Link from "next/link";
+
+
 type EnterButtonProps = {
   variant?: "primary" | "inverted";
   className?: string;
@@ -17,11 +20,13 @@ export function EnterButton({
   className = "",
 }: EnterButtonProps) {
   return (
-    <button
+    <Link href="/home">
+      <button
       type="button"
       className={`inline-flex min-h-12 items-center justify-center rounded-full px-7 text-lg font-semibold shadow-md transition-colors focus-visible:outline-3 focus-visible:outline-offset-2 ${variantClasses[variant]} ${className}`}
-    >
-      Entrar
-    </button>
+      >
+        Entrar
+      </button>
+    </Link>
   );
 }
