@@ -1,3 +1,7 @@
 export default function Loading() {
-  return <div>Carregando dados do equipamento...</div>;
+  return (
+    <p className="m-auto p-10 text-lg text-ink/70" role="status">
+      Carregando dados do equipamento...
+    </p>
+  );
 }

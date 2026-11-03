@@ -1,7 +1,5 @@
-import {
-  Equipment,
-  type EquipmentKind,
-} from "@/components/illustrations/Equipment";
+import { Equipment } from "@/components/illustrations/Equipment";
+import type { EquipmentKind } from "@/types/equipamentTypes";
 
 type EquipmentItem = {
   kind: EquipmentKind;

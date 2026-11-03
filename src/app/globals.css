@@ -23,4 +23,6 @@ body {
   background: #ffffff;
   color: var(--color-ink);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  /* Em telas muito estreitas, quebra palavras que não cabem na linha. */
+  overflow-wrap: break-word;
 }

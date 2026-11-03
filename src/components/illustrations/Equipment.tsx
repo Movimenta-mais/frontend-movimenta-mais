@@ -1,4 +1,4 @@
-export type EquipmentKind = "leg-press" | "horse-rider" | "leg-abduction";
+import type { EquipmentKind } from "@/types/equipamentTypes";
 
 type EquipmentProps = {
   kind: EquipmentKind;
@@ -10,7 +10,7 @@ const PART = "#FCC02C";
 
 /**
  * Desenhos simplificados dos aparelhos de academia ao ar livre,
- * inspirados nas imagens do design do app.
+ * inspirados nas imagens do design e do catálogo de exercícios.
  */
 export function Equipment({ kind, className }: EquipmentProps) {
   return (
@@ -19,6 +19,9 @@ export function Equipment({ kind, className }: EquipmentProps) {
       {kind === "leg-press" && <LegPress />}
       {kind === "horse-rider" && <HorseRider />}
       {kind === "leg-abduction" && <LegAbduction />}
+      {kind === "walker" && <Walker />}
+      {kind === "rower" && <Rower />}
+      {kind === "elliptical" && <Elliptical />}
     </svg>
   );
 }
@@ -70,6 +73,50 @@ function LegAbduction() {
       {/* Pêndulos das pernas */}
       <path d="M72 30l-6 70M88 30l6 70" stroke={PART} strokeWidth="8" />
       <path d="M58 104h14M88 104h14" stroke={PART} strokeWidth="8" />
+    </g>
+  );
+}
+
+function Walker() {
+  return (
+    <g strokeLinecap="round" strokeLinejoin="round" fill="none">
+      <path d="M34 118 54 24h52l20 94" stroke={FRAME} strokeWidth="7" />
+      {/* Barras de apoio para as mãos */}
+      <path d="M62 30l-5 26M98 30l5 26" stroke={PART} strokeWidth="7" />
+      {/* Pêndulos das pernas, um à frente e outro atrás */}
+      <path d="M80 28 64 98M80 28l16 70" stroke={PART} strokeWidth="7" />
+      <path d="M54 100h20M86 100h20" stroke={PART} strokeWidth="8" />
+    </g>
+  );
+}
+
+function Rower() {
+  return (
+    <g strokeLinecap="round" strokeLinejoin="round" fill="none">
+      <path d="M30 118h96" stroke={FRAME} strokeWidth="7" />
+      {/* Coluna do assento e viga até o apoio dos pés */}
+      <path d="M108 118V76" stroke={FRAME} strokeWidth="7" />
+      <path d="M108 98 46 110" stroke={FRAME} strokeWidth="6" />
+      <path d="M38 102l8 14" stroke={FRAME} strokeWidth="8" />
+      {/* Assento e encosto */}
+      <path d="M92 74h30" stroke={PART} strokeWidth="9" />
+      <path d="M124 72l6-38" stroke={PART} strokeWidth="9" />
+      {/* Alavanca com as alças */}
+      <path d="M70 106 50 52" stroke={PART} strokeWidth="7" />
+      <path d="M36 50h26" stroke={FRAME} strokeWidth="7" />
+    </g>
+  );
+}
+
+function Elliptical() {
+  return (
+    <g strokeLinecap="round" strokeLinejoin="round" fill="none">
+      <path d="M40 118h80" stroke={FRAME} strokeWidth="7" />
+      <path d="M84 118V60" stroke={FRAME} strokeWidth="8" />
+      <circle cx="84" cy="106" r="9" fill={FRAME} />
+      {/* Barras dos braços, ligadas aos pedais */}
+      <path d="M70 12l14 48 16 40M98 12 84 60l-20 40" stroke={PART} strokeWidth="6" />
+      <path d="M56 102h16M92 102h16" stroke={PART} strokeWidth="8" />
     </g>
   );
 }
