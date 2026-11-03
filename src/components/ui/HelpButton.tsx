@@ -5,6 +5,7 @@ import { HelpIcon } from "@/components/ui/icons";
 
 const tips = [
   "Procure o aparelho pelo nome ou toque em uma parte do corpo para filtrar.",
+  "Ou toque em “QR Code”, na barra de baixo, e aponte a câmera para o código colado no aparelho.",
   "Toque em “Ver instruções” para ver o passo a passo do exercício.",
   "Na página do aparelho, toque em “Ouvir áudio” para escutar as instruções.",
   "Toque no coração para guardar o exercício nos seus favoritos.",

@@ -91,6 +91,31 @@ export function QrCodeIcon(props: IconProps) {
   );
 }
 
+export function CameraIcon(props: IconProps) {
+  return (
+    <StrokeIcon {...props}>
+      <path d="M3 8.5A2.5 2.5 0 0 1 5.5 6H7l1.6-2.2a1 1 0 0 1 .8-.4h5.2a1 1 0 0 1 .8.4L17 6h1.5A2.5 2.5 0 0 1 21 8.5v9a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5Z" />
+      <circle cx="12" cy="13" r="3.5" />
+    </StrokeIcon>
+  );
+}
+
+export function CheckIcon(props: IconProps) {
+  return (
+    <StrokeIcon {...props}>
+      <path d="M5 12.5 10 17.5 19 7" />
+    </StrokeIcon>
+  );
+}
+
+export function CloseIcon(props: IconProps) {
+  return (
+    <StrokeIcon {...props}>
+      <path d="M6 6l12 12M18 6 6 18" />
+    </StrokeIcon>
+  );
+}
+
 export function UserIcon(props: IconProps) {
   return (
     <StrokeIcon {...props}>

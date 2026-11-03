@@ -79,11 +79,24 @@ npm run dev
 
 A aplicação fica disponível em [http://localhost:3000](http://localhost:3000).
 
+### Testando o leitor de QR Code no celular
+
+O navegador só libera a câmera em endereços seguros (`https://` ou `localhost`). Pelo IP da rede local com `http://` (ex.: `http://192.168.0.10:3000`) a tela de QR Code avisa que não consegue abrir a câmera. Para testar no celular, suba o servidor com HTTPS informando o IP do computador:
+
+```bash
+npm run dev:https -- -H 192.168.0.10
+```
+
+Depois abra `https://192.168.0.10:3000/qr-code` no celular. O certificado é gerado só para desenvolvimento, então o navegador mostra um aviso de segurança: toque em "Avançado" e continue para o site.
+
+O QR Code colado em cada aparelho deve conter o link da página dele, por exemplo `https://<endereço-do-site>/equipament/3`. Assim, além do leitor do app, a câmera do próprio celular também abre as instruções. O leitor também aceita só o número do aparelho (`3`).
+
 ## Scripts
 
 | Comando             | Descrição                                          |
 | ------------------- | -------------------------------------------------- |
 | `npm run dev`       | Inicia o servidor de desenvolvimento               |
+| `npm run dev:https` | Inicia o servidor de desenvolvimento com HTTPS     |
 | `npm run build`     | Gera o build de produção                           |
 | `npm run start`     | Executa o build de produção                        |
 | `npm run lint`      | Executa o ESLint                                   |
