@@ -1,12 +1,19 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { MAX_AGE, MIN_AGE, SEX_OPTIONS } from "@/constants/anamnesis";
+import { saveAnamnesisAction } from "@/app/actions/anamnesis";
 
 export function AnamnesisForm() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  
   const formRef = useRef<HTMLFormElement>(null);
   const [isSuccess, setIsSuccess] = useState(false);
   const [errors, setErrors] = useState<{ age?: string; sex?: string }>({});
+  
+  const callbackUrl = searchParams.get("callbackUrl") || "/home";
 
   useEffect(() => {
     const saved = localStorage.getItem("anamnesis_data");
@@ -44,6 +51,16 @@ export function AnamnesisForm() {
     setErrors({});
     localStorage.setItem("anamnesis_data", JSON.stringify({ age, sex }));
     setIsSuccess(true);
+
+    saveAnamnesisAction(Number(age), sex)
+      .then((result) => {
+        if (!result.success) {
+          console.warn("Os dados foram salvos localmente, mas houve um erro ao salvar no Supabase:", result.error);
+        }
+      })
+      .catch((err) => console.error("Erro ao salvar os dados no Supabase:", err));
+      
+    router.push(callbackUrl);
   };
 
   return (

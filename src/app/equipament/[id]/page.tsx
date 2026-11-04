@@ -8,6 +8,7 @@ import { VideoCard } from "@/components/equipament/VideoCard";
 import { AppHeader } from "@/components/layout/AppHeader";
 import { BodyPartTag } from "@/components/ui/BodyPartTag";
 import { LightbulbIcon, WarningIcon } from "@/components/ui/icons";
+import { EquipamentGuard } from "@/components/equipament/EquipamentGuard";
 import {
   getEquipamentById,
   getEquipaments,
@@ -49,7 +50,7 @@ export default async function EquipamentPage({
   if (!equipament) notFound();
 
   return (
-    <>
+    <EquipamentGuard>
       <AppHeader backHref="/home" />
       <main className="mx-auto w-full max-w-3xl px-5 pb-10">
         <h1 className="mt-4 text-3xl leading-tight font-bold text-ink sm:text-4xl">
@@ -143,6 +144,6 @@ export default async function EquipamentPage({
           <FavoriteButton equipamentId={equipament.id} />
         </div>
       </main>
-    </>
+    </EquipamentGuard>
   );
 }

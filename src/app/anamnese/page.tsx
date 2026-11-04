@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { AnamnesisForm } from "@/components/anamnesis/AnamnesisForm";
 import { Sparkle } from "@/components/illustrations/Sparkle";
 import { Footer } from "@/components/layout/Footer";
@@ -32,7 +33,17 @@ export default function AnamnesisPage() {
           </div>
 
           <div className="mt-8 rounded-[2rem] bg-white p-6 shadow-sm sm:p-8">
-            <AnamnesisForm />
+            <Suspense
+              fallback={
+                <div className="flex h-32 items-center justify-center">
+                  <p className="text-lg font-medium text-ink/80">
+                    Carregando formulário...
+                  </p>
+                </div>
+              }
+            >
+              <AnamnesisForm />
+            </Suspense>
           </div>
         </div>
       </main>
