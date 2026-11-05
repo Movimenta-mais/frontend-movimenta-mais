@@ -7,7 +7,15 @@ export type EquipmentKind =
   | "leg-abduction"
   | "walker"
   | "rower"
-  | "elliptical";
+  | "elliptical"
+  | "lat-pulldown"
+  | "chest-press"
+  | "shoulder-wheel"
+  | "parallel-bars"
+  | "twist-bars"
+  | "sit-up-bench"
+  | "pull-up-bar"
+  | "bar-set";
 
 export interface InstructionStep {
   title: string;

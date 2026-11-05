@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { EquipamentImage } from "@/components/equipament/EquipamentImage";
 import { ArrowRightIcon, ClockIcon, PlayIcon } from "@/components/ui/icons";
 import type { Equipament } from "@/types/equipamentTypes";
@@ -35,13 +36,13 @@ export function VideoCard({ equipament }: VideoCardProps) {
                 <ClockIcon className="size-4" />
                 {formatDuration(video.durationInSeconds)}
               </p>
-              <a
-                href={video.url}
+              <Link
+                href={`/equipament/${equipament.id}/video`}
                 className="mt-3 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-brand px-5 text-base font-semibold whitespace-nowrap text-white shadow-md transition-colors hover:bg-brand-dark focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-brand"
               >
                 Assistir vídeo
                 <ArrowRightIcon className="size-5" />
-              </a>
+              </Link>
             </>
           ) : (
             <p className="mt-3 inline-flex min-h-12 items-center rounded-full bg-brand-soft px-5 text-base font-semibold whitespace-nowrap text-ink/70">
